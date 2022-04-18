@@ -3,7 +3,8 @@ from pydantic import BaseModel
 
 
 class People(BaseModel):
-    id: str
+    id: int
+    cod : str
     nombre: str
     rol: int
 
@@ -32,7 +33,7 @@ def create_people(person: People):
 
 
 @app.get('/people/{id}', tags=["People"])
-def find_people(id: str):
+def find_people(id: int):
     for person in Data:
         if person["id"] == id:
             return person
@@ -40,7 +41,7 @@ def find_people(id: str):
 
 
 @app.delete('/people/{id}', tags=["People"])
-def delete_people(id: str):
+def delete_people(id: int):
     for index, person in enumerate(Data):
         if person["id"] == id:
             Data.pop(index)
@@ -49,7 +50,7 @@ def delete_people(id: str):
 
 
 @app.put('/people/{id}', tags=["People"])
-def update_person(id: str, updatedperson: People):
+def update_person(id: int, updatedperson: People):
     for index, person in enumerate(Data):
         if person["id"] == id:
             Data[index]["id"] = id

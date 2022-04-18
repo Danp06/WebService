@@ -1,6 +1,8 @@
 cd C:\Users\danie\Documents\U\6to Semestre\Arquitectura de Software\WebService
 
-$ conda activate WebService2
-$ conda deactivate
+conda activate WebService2
+conda deactivate
 
 uvicorn app:app --reload
+
+git push heroku main
