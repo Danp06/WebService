@@ -124,15 +124,18 @@ def update_register(placa: str, vehicle: Vehicle):
 
 @app.get('/registre/{rol}')
 def get_vehicles_by_status(rol: int, status = True):
-    number_registers = 0
+    number_registers = [0, 0, 0, 0]
     for register in vehicles:
-        for register in vehicles:
-            if register['person']['rol'] == 0 and register['status']==True:
-                number_registers += 1
-            if register['rol'] == 1 and register['status'] == True:
-                number_registers += 1
-            if register['rol'] == 2 and register['status'] == True:
-                number_registers += 1
-            if register['rol'] == 3 and register['status'] == True:
-                number_registers += 1
-            return {'rol:': rol, 'vehiculos parqueados:': number_registers}
+        if register['person']['rol'] == 0 and register['status']==True:
+            x = number_registers[0]
+            number_registers.append(x+1)
+        if register['person']['rol'] == 1 and register['status'] == True:
+            x = number_registers[1]
+            number_registers.append(x+1)
+        if register['person']['rol'] == 2 and register['status'] == True:
+            x = number_registers[2]
+            number_registers.append(x+1)
+        if register['person']['rol'] == 3 and register['status'] == True:
+            x = number_registers[3]
+            number_registers.append(x+1)
+        return {'rol:': rol, 'vehiculos parqueados:': number_registers[rol]}
