@@ -77,18 +77,18 @@ def update_person(id: int, updatedperson: People):
     raise HTTPException(status_code=404, detail="Person not found")
 
 
-@app.get('/register')
+@app.get('/register', tags=["Vehicle"])
 def registers():
     return vehicles
 
 
-@app.post('/register')
+@app.post('/register', tags=["Vehicle"])
 def create_register(vehicle: Vehicle):
     vehicles.append(vehicle.dict())
     return vehicle
 
 
-@app.get('/register/{placa}')
+@app.get('/register/{placa}', tags=["Vehicle"])
 def get_register(placa: str):
     vehicles_found = []
     for register in vehicles:
@@ -98,7 +98,7 @@ def get_register(placa: str):
     raise HTTPException(status_code=404, detail="Vehicle not found")
 
 
-@app.get('/register/')
+@app.get('/register/', tags=["Vehicle"])
 def get_register_hours(hour_max: datetime, hour_min: datetime):
     vehicles_found = []
     number_vehicles = 0
@@ -111,7 +111,7 @@ def get_register_hours(hour_max: datetime, hour_min: datetime):
     raise HTTPException(status_code=422, detail="invalid semantics")
 
 
-@app.put('/register/{placa}/')
+@app.put('/register/{placa}/', tags=["Vehicle"])
 def update_register(placa: str, vehicle: Vehicle):
     vehicle_found = []
     for register in vehicles:
@@ -122,7 +122,7 @@ def update_register(placa: str, vehicle: Vehicle):
     raise HTTPException(status_code=404, detail="Vehicle not found")
 
 
-@app.get('/registre/{rol}')
+@app.get('/registre/{rol}', tags=["Vehicle"])
 def get_vehicles_by_status(rol: int, status = True):
     number_registers = [0, 0, 0, 0]
     for register in vehicles:
