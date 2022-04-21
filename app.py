@@ -30,6 +30,22 @@ class People(BaseModel):
 
 
 class Vehicle(BaseModel):
+    """
+    Class use to represent a register of a vehicle
+    
+    :param id: Identification of register
+    :type id: str
+    :param person: person informacion 
+    :type person: Object(People) 
+    :param status:
+    :type status: bool
+    :param placa:
+    :type placa: str
+    :param fecha_ingreso:
+    :type fecha_ingreso: datetime
+    :param anotaciones:
+    :type anotaciones: str
+    """
     id: str
     person: People
     status: bool = False
