@@ -163,7 +163,7 @@ def get_register(placa: str):
 def get_register_hours(hour_max: datetime, hour_min: datetime):
     """ Funcion para buscar un vehicle a una hora y retornar cantidad de vehiculos.
             :returns: cantidad vehiculos.
-            :rtype: int.
+            :rtype: str.
     """
     vehicles_found = []
     number_vehicles = 0
@@ -195,7 +195,7 @@ def update_register(placa: str, vehicle: Vehicle):
 def get_vehicles_by_status(rol: int):
     """ Funcion para buscar un vehiculos parqueados y retornar cantidad de vehiculos por rol.
             :returns: cantidad vehiculos por rol.
-            :rtype: int.
+            :rtype: str.
     """
     number_registers = [0, 0, 0, 0]
     for register in vehicles:
